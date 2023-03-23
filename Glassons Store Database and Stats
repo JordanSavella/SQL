@@ -1,0 +1,33 @@
+Create a Glassons Store Database
+
+CREATE TABLE Glassons (System INTEGER PRIMARY KEY, Item TEXT, Amount INTEGER, Price INTEGER);
+
+
+INSERT into Glassons VALUES (1, "Shorts", 20, 15.99);
+INSERT into Glassons VALUES(2, "Socks", 15, 3.99);
+INSERT into Glassons VALUES(3, "Trousers", 45, 21.99);
+INSERT into Glassons VALUES(4, "Jackets", 9, 25);
+INSERT into Glassons VALUES(5, "Shoes", 28, 39.99);
+INSERT into Glassons VALUES(6, "Accessories", 27, 4.99);
+INSERT into Glassons VALUES(7, "T-Shirts", 51, 10.99);
+INSERT into Glassons VALUES(8, "Blouses", 28, 19.99);
+INSERT into Glassons VALUES(9, "Tank Top", 18, 7.99);
+INSERT into Glassons VALUES(10, "Denim", 30, 45.99);
+INSERT into Glassons VALUES(11, "Innerwear", 20, 15.99);
+INSERT into Glassons VALUES(12, "Active", 50, 22.99);
+INSERT into Glassons VALUES(13, "Knitwear", 12, 23.99);
+INSERT into Glassons VALUES(14, "Sale", 10, 5.99);
+INSERT into Glassons VALUES(15, "Linen", 40, 32.99);
+
+
+--Display the database ordered by System
+SELECT * FROM Glassons 
+ORDER BY(System)asc;
+
+--Display the database ordered by price
+SELECT * FROM Glassons 
+ORDER BY(price)asc;
+
+What is the sum amount of items at Glassons?
+SELECT SUM(amount) FROM Glassons;
+
