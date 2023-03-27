@@ -1,0 +1,112 @@
+CREATE TABLE postaloffice (ID INTEGER primary Key, Customers_name TEXT, refrence_name TEXT, box_number INTEGER, Address TEXT, State TEXT); 
+
+INSERT INTO postaloffice VALUES (1, "Serena Kingston", "Rena", 101, "9167 East Addison Drive", "California");
+INSERT INTO postaloffice VALUES (2, "Akimitsu Pecora", "Akimitsu", 102, "74 Elm Street Apt 115", "California");
+INSERT INTO postaloffice VALUES (3, "Freddy Parisi", "Freddy", 103, "944 Hilltop St.", "New Jersey");
+INSERT INTO postaloffice VALUES (4, "Davie Hicks", "Dave", 104, "974 Williams St.", "New York");
+INSERT INTO postaloffice VALUES (5, "Patrick Barbier", "Pat", 105, "88 E. Windsor Ave.", "Virginia");
+INSERT INTO postaloffice VALUES (6, "Elaina Landon", "Elaina", 106, "7251 Beaver Ridge Ave.", "Maryland");
+INSERT INTO postaloffice VALUES (7, "Patricia Parker", "Patricia",107, "489 South Jackson Dr", "Florida");
+INSERT INTO postaloffice VALUES (8, "Cecilia Evelyn", "Cecilia", 108, "9173 S. Armstrong Street", "Indiana");
+INSERT INTO postaloffice VALUES (9, "Alysha Thomas", "Alysha", 109, "9173 S. Armstrong Street", "Indiana");
+INSERT INTO postaloffice VALUES (10, "Kelena Delacroix", "Kalena",110, "8059 SE. Jackson Dr.", "Pennsylvania");
+INSERT INTO postaloffice VALUES (11, "Angelo Scrivens", "Angel",111, "8555 10th Drive", "Wisconsin");
+INSERT INTO postaloffice VALUES (12, "Fisher Waynne", "Wayne",112, "8235 Kent Ave.", "Illinois");
+INSERT INTO postaloffice VALUES (13, "Magdeline Fior", "Maggie",113, "531 Linda Drive", "North Carolina");
+INSERT INTO postaloffice VALUES (14, "Randolph Burnham", "Ralph",114, "8 Cypress Rd.", "California");
+INSERT INTO postaloffice VALUES (15, "Kassandra Martel", "Kas",115, "965 Oak Meadow St.", "Florida");
+INSERT INTO postaloffice VALUES (16, "Kat Robertson", "Kat",116, "928 Wellington Street", "Maryland");
+INSERT INTO postaloffice VALUES (17, "Radclyffe Zena", "Radclyffe",117, "622 Gonzales Street", "California");
+INSERT INTO postaloffice VALUES (18, "Nylen Smalls", "Nylen",118, "7056 N. Hawthorne Dr.t", "Ohio");
+INSERT INTO postaloffice VALUES (19, "Layne Peel", "Layne",119, "8019 South Silver Spear Street", "Minnesota");
+INSERT INTO postaloffice VALUES (20, "Brock Jaci", "Brock",120, "9954 Prince St.", "New York");
+INSERT INTO postaloffice VALUES (21, "Franklyn Ambraham", "Frank",121, "7701 Ryan Dr.", "Montana");
+INSERT INTO postaloffice VALUES (22, "Jaiden Abrahamson", "Jai",122, "68 Bridle Dr.", "North Dakota");
+INSERT INTO postaloffice VALUES (23, "Shannon Hope", "Shannon",123, "8564 David St.", "Minnesota");
+INSERT INTO postaloffice VALUES (24, "Tracy Leon", "Tracy",124, "98 Grand Court", "Pennsylvania");
+INSERT INTO postaloffice VALUES (25, "Alma Plourde", "Null",125, "5555 Bohemia Street", "Maryland");
+INSERT INTO postaloffice VALUES (26, "Randy Nelson", "Randy",126, "9996 Bohemia Street", "Maryland");
+INSERT INTO postaloffice VALUES (27, "Gloria Nemi", "Gloria",127, "927 Harvard Street","Ohio");
+INSERT INTO postaloffice VALUES (28, "Bailey Costa", "Bailey",128, "44 Poor House Lane", "Texas");
+INSERT INTO postaloffice VALUES (29, "Rowanne Katsumi","Null",129, "774 Old York St.", "Maryland");
+INSERT INTO postaloffice VALUES (30, "Darcy Thomas","Null", 130,"425 Hickory St", "Georgia");
+INSERT INTO postaloffice VALUES (31, "Carmen Bourdillion", "Carmen", 131,"55 Snake Hill St.", "Florida");
+INSERT INTO postaloffice VALUES (32, "Olga Nave", "Null", 132,"13 Lantern Dr.", "Montana");
+INSERT INTO postaloffice VALUES (33, "Esha Alvarez", "Null", 133,"883 W. Heather St.", "Alabama");
+INSERT INTO postaloffice VALUES (34, "Hugo Cantrell", "Null", 134,"168 South Forest Ave.", "Texas");
+INSERT INTO postaloffice VALUES (35, "Penny Blackburn", "Null", 135,"576 N. Edgewater St.", "New York");
+INSERT INTO postaloffice VALUES (36, "Isabelle Barnett", "Izzy", 136,"8492 S. Dogwood Street", "West Virginia");
+INSERT INTO postaloffice VALUES (37, "Hanna Pierce", "Hanna", 137,"66 Hickory Drivet", "Massachusetts");
+INSERT INTO postaloffice VALUES (38, "Corey Morae", "Corey", 138,"40 Whitemarsh St.", "Georgia");
+INSERT INTO postaloffice VALUES (39, "Tyler Tate", "Ty", 139,"661 Greystone Street", "Utah");
+INSERT INTO postaloffice VALUES (40, "Harvey Nielsen", "Harvey", 140,"290 Windsor Dr.", "Florida");
+
+
+-- How many records are there in the database?
+SELECT * FROM postaloffice;
+
+
+-- What are the box numbers open in our office?
+SELECT box_number FROM postaloffice;
+
+
+-- All records ordered by state alphabetically.
+SELECT * FROM postaloffice ORDER BY state asc;
+
+
+-- What are the abbreviations of the states with boc numbers in the database?
+SELECT state,
+CASE
+    WHEN state = "Alabama" THEN "AL"
+    WHEN state = "California" THEN "CA"
+    WHEN state = "Florida" THEN "FL"
+    WHEN state = "Georgia" THEN "GA"
+    WHEN state = "Illinois" THEN "IL"
+    WHEN state = "Indiana" THEN "IN"
+    WHEN state = "Maryland" THEN "MD"
+    WHEN state = "Massachusetts" THEN "MA"
+    WHEN state = "Minnesota" THEN "MN"
+    WHEN state = "Montana" THEN "MT"
+    WHEN state = "New Jersey" THEN "NJ"
+    WHEN state = "New York" THEN "NY"
+    WHEN state = "North Carolina" THEN "NC"
+    WHEN state = "North Dakota" THEN "ND"
+    WHEN state = "Ohio" THEN "OH"
+    WHEN state = "Pennsylvania" THEN "PA"
+    WHEN state = "Texas" THEN "TX"
+    WHEN state = "Utah" THEN "UT"
+    WHEN state = "Virginia" THEN "VA"
+    WHEN state = "West Virginia" THEN "WV"
+    WHEN state = "Wisconsin" THEN "WI"
+END AS state_abbreviations   
+FROM postaloffice
+ORDER BY state asc;
+    
+-- Which customers lives in Wisconsin?
+SELECT customers_name, state FROM postaloffice WHERE state IS "Wisconsin";
+
+
+-- What box numbers are in between 102 and 115?
+SELECT box_number FROM postaloffice WHERE box_number >=102 AND box_number <=115;
+
+
+-- How many customers are there in Florida?
+SELECT COUNT(*) FROM postaloffice WHERE state = "Florida";
+
+
+-- How many customers are there with this name?
+SELECT Count(*) FROM postaloffice WHERE customers_name = "Davie Hicks";
+
+
+-- How many states are there with more than 1 customers?
+SELECT COUNT(ID), state
+FROM postaloffice
+GROUP BY state
+HAVING COUNT(ID) >1;
+
+
+-- What is the average customers?
+SELECT AVG(id) FROM postaloffice;
+
+--What is the total of all the box numbers?
+SELECT SUM(box_number) FROM postaloffice;
