@@ -19,6 +19,8 @@ INSERT INTO famous (fullname, age, gender) VALUES ("Jennifer Lawrence", 33, "Fem
 INSERT INTO famous (fullname, age, gender) VALUES ("Channing Tatum", 43, "Male");
 INSERT INTO famous (fullname, age, gender) VALUES ("Johnny Depp", 60, "Male");
 INSERT INTO famous (fullname, age, gender) VALUES ("Anna Kendrick", 38, "Female");
+INSERT INTO famous (fullname, age, gender) VALUES ("Noah Centineo", 26, "Male");
+
 
 
 CREATE TABLE Special (
@@ -26,4 +28,117 @@ CREATE TABLE Special (
     person_id INTEGER,
     job_title TEXT);
     
-INSERT INTO special (person_id, job) VALUES (1
+INSERT INTO special (person_id, job_title) VALUES (1, "actor");
+INSERT INTO special (person_id, job_title) VALUES (1, "producer");
+INSERT INTO special (person_id, job_title) VALUES (1, "voice");
+
+INSERT INTO special (person_id, job_title) VALUES (2, "Actor");
+INSERT INTO special (person_id, job_title) VALUES (2, "producer");
+INSERT INTO special (person_id, job_title) VALUES (2, "screenwriter");
+INSERT INTO special (person_id, job_title) VALUES (2, "voice");
+
+INSERT INTO special (person_id, job_title) VALUES (3, "actor");
+INSERT INTO special (person_id, job_title) VALUES (3, "executive producer");
+INSERT INTO special (person_id, job_title) VALUES (3, "voice");
+
+INSERT INTO special (person_id, job_title) VALUES (4, "Actor");
+
+INSERT INTO special (person_id, job_title) VALUES (5, "actor");
+INSERT INTO special (person_id, job_title) VALUES (5, "voice");
+
+
+INSERT INTO special (person_id, job_title) VALUES (6, "actor");
+INSERT INTO special (person_id, job_title) VALUES (6, "voice");
+INSERT INTO special (person_id, job_title) VALUES (6, "producer");
+
+INSERT INTO special (person_id, job_title) VALUES (7, "voice");
+INSERT INTO special (person_id, job_title) VALUES (7, "actor");
+
+
+INSERT INTO special (person_id, job_title) VALUES (8, "actor");
+
+INSERT INTO special (person_id, job_title) VALUES (9, "actor");
+INSERT INTO special (person_id, job_title) VALUES (9, "executive producer");
+INSERT INTO special (person_id, job_title) VALUES (9, "producer");
+INSERT INTO special (person_id, job_title) VALUES (9, "voice");
+
+INSERT INTO special (person_id, job_title) VALUES (10, "actor");
+INSERT INTO special (person_id, job_title) VALUES (10, "director");
+INSERT INTO special (person_id, job_title) VALUES (10, "voice");
+INSERT INTO special (person_id, job_title) VALUES (10, "executive producer");
+INSERT INTO special (person_id, job_title) VALUES (10, "producer");
+INSERT INTO special (person_id, job_title) VALUES (10, "narrator");
+
+INSERT INTO special (person_id, job_title) VALUES (11, "actor");
+INSERT INTO special (person_id, job_title) VALUES (11, "narrator");
+INSERT INTO special (person_id, job_title) VALUES (11, "producer");
+
+INSERT INTO special (person_id, job_title) VALUES (12, "actor");
+INSERT INTO special (person_id, job_title) VALUES (12, "director");
+INSERT INTO special (person_id, job_title) VALUES (12, "executive producer");
+INSERT INTO special (person_id, job_title) VALUES (12, "producer");
+INSERT INTO special (person_id, job_title) VALUES (12, "voice");
+
+INSERT INTO special (person_id, job_title) VALUES (13, "actor");
+INSERT INTO special (person_id, job_title) VALUES (13, "executive producer");
+INSERT INTO special (person_id, job_title) VALUES (13, "producer");
+INSERT INTO special (person_id, job_title) VALUES (13, "director");
+INSERT INTO special (person_id, job_title) VALUES (13, "voice");
+
+INSERT INTO special (person_id, job_title) VALUES (14, "actor");
+INSERT INTO special (person_id, job_title) VALUES (14, "voice");
+INSERT INTO special (person_id, job_title) VALUES (14, "executive producer");
+
+INSERT INTO special (person_id, job_title) VALUES (15, "actor");
+INSERT INTO special (person_id, job_title) VALUES (15, "model");
+
+-- Can you show a full representation of both tables?
+SELECT * FROM Famous;
+SELECT * FROM special;
+
+
+-- Can you find all of the job titles related to each famous person within the two tables?
+SELECT famous.fullname, special.job_title
+FROM famous
+JOIN special
+ON famous.id= special.person_id;
+
+
+-- Can you find all the famous people that held the title of "director" within both tables?
+SELECT famous.fullname, special.job_title
+FROM famous
+JOIN special
+ON famous.id= special.person_id
+WHERE special.job_title= "director";
+
+
+-- Can you use "AS", as an alias to shorten queries? Also can you display the age of each famous person next to each job title they've held?
+SELECT f.fullname, f.age, s.job_title
+From famous AS f
+LEFT OUTER JOIN special AS s
+ON f.id= s.person_id;
+
+
+-- Are you able to find all the job_title(s) held by Johnny Depp?
+SELECT f.fullname, s.job_title
+FROM famous AS f
+JOIN special AS s
+ON f.id=s.person_id
+WHERE f.fullname= "Johnny Depp";
+
+
+
+-- Create a query that will display each famous person that acted, sorted by age.
+SELECT f.fullname, f.age, s.job_title
+FROM famous AS f
+LEFT OUTER JOIN special AS s
+ON f.id=s.person_id
+WHERE s.job_title= "actor"
+GROUP BY f.fullname
+ORDER BY f.age ASC;
+
+
+-- Are you able to query all the famous people, how old they are, and order by their age ascending.
+SELECT f.fullname, f.age
+FROM famous AS f
+ORDER BY f.fullname ASC;
