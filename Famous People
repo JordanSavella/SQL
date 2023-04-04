@@ -1,0 +1,29 @@
+/* Create table about the people and what they do here */
+CREATE TABLE Famous 
+  (id INTEGER PRIMARY KEY, 
+   fullname TEXT, 
+   age INTEGER, 
+   gender TEXT);
+
+INSERT INTO famous (fullname, age, gender) VALUES ("Margot Robbie", 33, "Female");
+INSERT INTO famous (fullname, age, gender) VALUES ("Ryan Reynolds", 47, "Male");
+INSERT INTO famous (fullname, age, gender) VALUES ("Scarlotte Johannson", 39, "Female");
+INSERT INTO famous (fullname, age, gender) VALUES ("Chris Hemsworth", 40, "Male");
+INSERT INTO famous (fullname, age, gender) VALUES ("Tom Hiddleston", 41, "Male");
+INSERT INTO famous (fullname, age, gender) VALUES ("Chris Pratt", 40, "Male");
+INSERT INTO famous (fullname, age, gender) VALUES ("Gal Gadot", 38, "Female");
+INSERT INTO famous (fullname, age, gender) VALUES ("Cara Delevingne", 29, "Female");
+INSERT INTO famous (fullname, age, gender) VALUES ("Mark Wahlberg", 52, "Male");
+INSERT INTO famous (fullname, age, gender) VALUES ("Chris Evans", 42, "Male");
+INSERT INTO famous (fullname, age, gender) VALUES ("Jennifer Lawrence", 33, "Female");
+INSERT INTO famous (fullname, age, gender) VALUES ("Channing Tatum", 43, "Male");
+INSERT INTO famous (fullname, age, gender) VALUES ("Johnny Depp", 60, "Male");
+INSERT INTO famous (fullname, age, gender) VALUES ("Anna Kendrick", 38, "Female");
+
+
+CREATE TABLE Special (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    job_title TEXT);
+    
+INSERT INTO special (person_id, job) VALUES (1
